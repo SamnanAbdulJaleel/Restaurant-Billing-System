@@ -1,12 +1,5 @@
 
 ---
-
-
-<!-- Banner -->
-<p align="center">
-  <img src="./screenshot.png" alt="Restaurant Billing System Banner" width="100%">
-</p>
-
 <h1 align="center">🍽 Restaurant Billing System</h1>
 
 <p align="center">
@@ -124,51 +117,62 @@
 ---
 
 ## 📸 Screenshots
-
+<br>
 <p align="center">
   Dashboard
    <br>
 </p>
 <p align="center">
-  <img src="./Screenshot7.png" alt="Dashboard" width="70%">
-  <img src="./screenshot.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot1.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot2.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot3.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot14.png" alt="Dashboard" width="70%">
 </p>
+<br>
 
 <p align="center">
   Revenue System
    <br>
 </p>
 <p align="center">
-  <img src="./Screenshot3.png" alt="Dashboard" width="70%">
-  <img src="./screenshot8.png" alt="Dashboard" width="70%">
-  <img src="./screenshot9.png" alt="Dashboard" width="70%">
-  <img src="./screenshot11.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot8.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot9.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot10.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot11.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot15.png" alt="Dashboard" width="70%">
 </p>
+<br>
 
 <p align="center">
-  <i>Order management panel</i>
+  <i>Order Management Panel</i>
     <br>
 </p>
 <p align="center">
-  <img src="./Screenshot6.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot4.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot5.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot6.png" alt="Dashboard" width="70%">
 </p>
+<br>
 
 <p align="center">
-  <i>Table Management</i>
+  <i>Table Management System</i>
     <br>
 </p>
 <p align="center">
-  <img src="./Screenshot2.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot7.png" alt="Dashboard" width="70%">
 </p>
+<br>
 
 <p align="center">
   <i>Restaurant Menu</i>
     <br>
 </p>
 <p align="center">
-  <img src="./Screenshot4.png" alt="Dashboard" width="70%">
-  <img src="./Screenshot5.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot12.png" alt="Dashboard" width="70%">
+  <img src="./asset/Screenshot13.png" alt="Dashboard" width="70%">
 </p>
+<br>
+
 
 ---
 
@@ -180,8 +184,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-📧 **[samnanjaleel22@gmail.com](mailto:your.email@example.com)**
-💬 **+91-9747156102**
+📧 **Email:** [samnanjaleel22@gmail.com](mailto:samnanjaleel22@gmail.com)
+
+📬 **Contact me:** +91 9746156102
 
 ---
 
