@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'Resto.png' %}">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <title>TopTaste - New Order</title>
+  
+  <style>
+    :root {
+      --primary: #2D3250;
+      --secondary: #424769;
+      --accent: #F6B17A;
+      --accent-dark: #E8985E;
+      --light: #F7F7F7;
+      --dark: #1C1E2D;
+      --success: #7DCE94;
+      --warning: #FFD93D;
+      --danger: #FF6B6B;
+      --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)), 
+                  url('https://images.unsplash.com/photo-1606913084603-3e7702b01627?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: var(--light);
+    }
+    
+    .navbar {
+      background: rgba(45, 50, 80, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--light) !important;
+    }
+    
+    .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+    
+    .nav-link {
+      color: var(--light) !important;
+      font-weight: 500;
+      padding: 0.7rem 1.2rem;
+      border-radius: 12px;
+      transition: var(--transition);
+      position: relative;
+      margin: 0 0.3rem;
+    }
+    
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .nav-link.active {
+      background: var(--accent);
+      color: var(--dark) !important;
+    }
+    
+    .dropdown-menu {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--card-shadow);
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .dropdown-item {
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      color: var(--dark);
+      font-weight: 500;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(45, 50, 80, 0.1);
+      transform: translateX(5px);
+    }
+    
+    .dropdown-item.active {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .main-content {
+      width: 100%;
+      padding-top: 90px;
+      padding-bottom: 2rem;
+    }
+    
+    .order-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .page-subtitle {
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    
+    .order-type-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .order-type-btn {
+      flex: 1;
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 2px solid transparent;
+      background: rgba(45, 50, 80, 0.05);
+      color: var(--dark);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .order-type-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(45, 50, 80, 0.1);
+    }
+    
+    .order-type-btn.active {
+      background: var(--accent);
+      color: var(--dark);
+      border-color: var(--accent-dark);
+    }
+    
+    .order-type-btn i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .table-select {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: rgba(45, 50, 80, 0.05);
+    }
+    
+    .table-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .table-btn {
+      padding: 1rem;
+      border-radius: 12px;
+      border: none;
+      background: white;
+      color: var(--dark);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .table-btn:hover:not(.occupied) {
+      transform: translateY(-2px);
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .table-btn.occupied {
+      background: rgba(255, 107, 107, 0.2);
+      color: var(--danger);
+      cursor: not-allowed;
+    }
+    
+    .table-btn.selected {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .menu-section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: rgba(45, 50, 80, 0.05);
+    }
+    
+    .menu-title {
+      color: var(--dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+    
+    .menu-item:hover {
+      transform: translateX(5px);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .menu-item-details {
+      flex: 1;
+    }
+    
+    .menu-item-name {
+      color: var(--dark);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .menu-item-price {
+      color: var(--accent-dark);
+      font-weight: 600;
+    }
+    
+    .quantity-input {
+      width: 100px;
+      text-align: center;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    
+    .quantity-input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+    
+    .category-starters {
+      background: rgba(125, 206, 148, 0.2);
+      color: var(--success);
+    }
+    
+    .category-main {
+      background: rgba(246, 177, 122, 0.2);
+      color: var(--accent-dark);
+    }
+    
+    .category-special {
+      background: rgba(255, 217, 61, 0.2);
+      color: var(--warning);
+    }
+    
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      height: 55px;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--dark);
+      box-shadow: 0 4px 15px rgba(246, 177, 122, 0.3);
+      transition: var(--transition);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+    
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(246, 177, 122, 0.4);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+    
+    @media (max-width: 768px) {
+      .order-container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1rem;
+      }
+      
+      .order-type-container {
+        flex-direction: column;
+      }
+      
+      .table-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      }
+      
+      .menu-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .category-badge {
+        margin: 0.5rem 0 0 0;
+      }
+    }
+
+    .search-filter-bar {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--light);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .btn-quantity {
+      background: var(--light);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .btn-quantity:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .quantity-input {
+      width: 60px;
+      text-align: center;
+      border: 2px solid var(--light);
+      border-radius: 8px;
+      padding: 0.25rem;
+      font-weight: 500;
+    }
+
+    .quantity-input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-filters {
+        justify-content: center;
+      }
+    }
+
+    /* Toast Notifications */
+    .toast {
+      background: linear-gradient(135deg, var(--danger), #FF4444) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .toast-body {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .toast-body i {
+      font-size: 1.25rem;
+      margin-right: 0.75rem;
+      color: white;
+    }
+
+    .btn-close-white {
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .btn-close-white:hover {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+      .toast-container {
+        padding: 1rem !important;
+      }
+      
+      .toast {
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+
+    .btn-logout {
+      background: var(--warning);
+      color: var(--dark);
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 42px;
+      white-space: nowrap;
+    }
+
+    .btn-logout:hover {
+      background: var(--warning);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 217, 61, 0.4);
+      color: var(--dark);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="/index/">
+        <img src="{% static 'Resto.png' %}" alt="TopTaste" class="me-2">
+        <span>TopTaste</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/index/">
+              <i class="fas fa-plus-circle me-2"></i>New Order
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/show/">
+              <i class="fas fa-list me-2"></i>Orders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tables/">
+              <i class="fas fa-chair me-2"></i>Tables
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/revenue/">
+              <i class="fas fa-chart-line me-2"></i>Revenue
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fas fa-utensils me-2"></i>Menu
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/additem/">
+                <i class="fas fa-plus me-2"></i>Add Item
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/showitem/">
+                <i class="fas fa-book-open me-2"></i>Show Menu
+              </a>
+            </div>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center">
+          <span class="nav-link me-3">
+            <i class="fas fa-user-circle me-2"></i>{{userdata}}
+          </span>
+          <div class="d-flex align-items-center">
+            <a href="/logout" class="btn-logout">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="container">
+      <div class="order-container">
+        <h1 class="page-title">
+          <i class="fas fa-plus-circle me-3"></i>New Order
+        </h1>
+        <p class="page-subtitle">Create a new order for your customers</p>
+
+        <form method="POST" id="orderForm" onsubmit="return validateForm()">
+      {% csrf_token %}
+      
+          <!-- Order Type Selection -->
+          <div class="order-type-container">
+            <div class="order-type-btn" onclick="selectOrderType('dine-in')" id="dineInBtn">
+              <i class="fas fa-chair"></i>
+              <h3>Dine In</h3>
+              <p class="mb-0">Table service order</p>
+            </div>
+            <div class="order-type-btn" onclick="selectOrderType('parcel')" id="parcelBtn">
+              <i class="fas fa-box"></i>
+              <h3>Parcel</h3>
+              <p class="mb-0">Takeaway order</p>
+        </div>
+      </div>
+      
+          <input type="hidden" name="order_type" id="orderType" value="">
+          
+          <!-- Table Selection (for dine-in) -->
+          <div class="table-select" id="tableSelection" style="display: none;">
+            <h3 class="menu-title">
+              <i class="fas fa-chair"></i>
+              Select Table
+            </h3>
+            <div class="table-grid">
+              {% for table in tables %}
+                <button type="button" class="table-btn {% if table.is_occupied %}occupied{% endif %}" 
+                        onclick="selectTable({{table.number}})" 
+                        {% if table.is_occupied %}disabled{% endif %}
+                        id="table{{table.number}}">
+                  Table {{table.number}}
+                </button>
+              {% endfor %}
+            </div>
+            <input type="hidden" name="table_number" id="selectedTable" value="">
+          </div>
+          
+          <!-- Menu Items -->
+          <div class="menu-section">
+            <h3 class="menu-title">
+              <i class="fas fa-utensils"></i>
+              Menu Items
+            </h3>
+
+            <!-- Search and Filter Bar -->
+            <div class="search-filter-bar mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </span>
+                <input type="text" class="form-control" id="menuSearch" 
+                       placeholder="Search menu items...">
+              </div>
+              <div class="category-filters mt-3">
+                <button type="button" class="filter-btn active" data-category="all">
+                  <i class="fas fa-th-list me-2"></i>All
+                </button>
+                <button type="button" class="filter-btn" data-category="Starters">
+                  <i class="fas fa-utensils me-2"></i>Starters
+                </button>
+                <button type="button" class="filter-btn" data-category="Main Course">
+                  <i class="fas fa-drumstick-bite me-2"></i>Main Course
+                </button>
+                <button type="button" class="filter-btn" data-category="Restaurant Special">
+                  <i class="fas fa-star me-2"></i>Special
+                </button>
+              </div>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="menu-grid">
+              {% for item in menu %}
+              <div class="menu-item" data-category="{{item.dishtype}}" data-name="{{item.dishname|lower}}">
+                <div class="menu-item-details">
+                  <h4 class="menu-item-name">{{item.dishname}}</h4>
+                  <div class="d-flex align-items-center">
+                    <span class="menu-item-price">₹{{item.dishprice}}</span>
+                    {% if item.dishtype == "Starters" %}
+                      <span class="category-badge category-starters">
+                        <i class="fas fa-utensils me-2"></i>Starters
+                      </span>
+                    {% elif item.dishtype == "Main Course" %}
+                      <span class="category-badge category-main">
+                        <i class="fas fa-drumstick-bite me-2"></i>Main Course
+                      </span>
+                    {% else %}
+                      <span class="category-badge category-special">
+                        <i class="fas fa-star me-2"></i>Restaurant Special
+                      </span>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="quantity-control">
+                  <button type="button" class="btn-quantity" onclick="decrementQuantity(this)">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <input type="number" name="{{item.dishname}}" class="quantity-input" value="0" min="0" max="15">
+                  <button type="button" class="btn-quantity" onclick="incrementQuantity(this)">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        
+          <button type="submit" name="save" value="save" class="btn-submit">
+            <i class="fas fa-save me-2"></i>Save Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container for Notifications -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1070;">
+    <div id="warningToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="fas fa-exclamation-triangle me-2"></i>
+          <span id="toastMessage"></span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Initialize toast
+    const warningToast = new bootstrap.Toast(document.getElementById('warningToast'), {
+      animation: true,
+      autohide: true,
+      delay: 3000
+    });
+
+    function showWarning(message) {
+      document.getElementById('toastMessage').textContent = message;
+      warningToast.show();
+    }
+
+    function selectOrderType(type) {
+      document.getElementById('orderType').value = type;
+      document.getElementById('dineInBtn').classList.remove('active');
+      document.getElementById('parcelBtn').classList.remove('active');
+      
+      if (type === 'dine-in') {
+        document.getElementById('dineInBtn').classList.add('active');
+        document.getElementById('tableSelection').style.display = 'block';
+      } else {
+        document.getElementById('parcelBtn').classList.add('active');
+        document.getElementById('tableSelection').style.display = 'none';
+        document.getElementById('selectedTable').value = '';
+      }
+    }
+
+    function selectTable(number) {
+      document.getElementById('selectedTable').value = number;
+      document.querySelectorAll('.table-btn').forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      document.getElementById('table' + number).classList.add('selected');
+    }
+
+    function validateForm() {
+      const orderType = document.getElementById('orderType').value;
+      const selectedTable = document.getElementById('selectedTable').value;
+      
+      if (!orderType) {
+        showWarning('Please select an order type (Dine In or Parcel)');
+        return false;
+      }
+      
+      if (orderType === 'dine-in' && !selectedTable) {
+        showWarning('Please select a table for dine-in orders');
+        return false;
+      }
+      
+      // Check if any items are selected
+      let hasItems = false;
+      document.querySelectorAll('.quantity-input').forEach(input => {
+        if (parseInt(input.value) > 0) {
+          hasItems = true;
+        }
+      });
+      
+      if (!hasItems) {
+        showWarning('Please select at least one item');
+        return false;
+      }
+      
+      return true;
+    }
+
+    // Search functionality
+    const menuSearch = document.getElementById('menuSearch');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let currentCategory = 'all';
+
+    if (menuSearch) {
+      menuSearch.addEventListener('input', filterMenuItems);
+    }
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.category;
+        filterMenuItems();
+      });
+    });
+
+    function filterMenuItems() {
+      const searchTerm = menuSearch.value.toLowerCase();
+      
+      menuItems.forEach(item => {
+        const name = item.dataset.name;
+        const category = item.dataset.category;
+        const matchesSearch = name.includes(searchTerm);
+        const matchesCategory = currentCategory === 'all' || category === currentCategory;
+        
+        if (matchesSearch && matchesCategory) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Quantity controls
+    function incrementQuantity(btn) {
+      const input = btn.previousElementSibling;
+      const currentValue = parseInt(input.value);
+      if (currentValue < parseInt(input.max)) {
+        input.value = currentValue + 1;
+      }
+    }
+
+    function decrementQuantity(btn) {
+      const input = btn.nextElementSibling;
+      const currentValue = parseInt(input.value);
+      if (currentValue > parseInt(input.min)) {
+        input.value = currentValue - 1;
+      }
+    }
+
+    // Initialize all quantity inputs
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.value < 0) this.value = 0;
+        if (this.value > 15) this.value = 15;
+      });
+    });
+  </script>
+</body>
+
+</html>

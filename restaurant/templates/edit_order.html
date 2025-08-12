@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Edit Order #{{ customer.id }}</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Order Type Selection -->
+                <div class="mb-4">
+                    <label class="form-label">Order Type</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="order_type" id="dine-in" value="dine-in" 
+                               {% if customer.order_type == 'dine-in' %}checked{% endif %}>
+                        <label class="btn btn-outline-primary" for="dine-in">
+                            <i class="fas fa-chair me-2"></i>Dine In
+                        </label>
+                        
+                        <input type="radio" class="btn-check" name="order_type" id="parcel" value="parcel"
+                               {% if customer.order_type == 'parcel' %}checked{% endif %}>
+                        <label class="btn btn-outline-primary" for="parcel">
+                            <i class="fas fa-box me-2"></i>Parcel
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Table Selection (for dine-in) -->
+                <div id="table-selection" class="mb-4" {% if customer.order_type != 'dine-in' %}style="display: none;"{% endif %}>
+                    <label class="form-label">Select Table</label>
+                    <select name="table_number" class="form-select">
+                        <option value="">Select a table...</option>
+                        {% for table in tables %}
+                        <option value="{{ table.number }}" 
+                                {% if current_table and current_table.number == table.number %}selected{% endif %}>
+                            Table {{ table.number }}
+                            {% if current_table and current_table.number == table.number %}(Current){% endif %}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Type</th>
+                                <th style="width: 150px;">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in menu %}
+                            <tr>
+                                <td>{{ item.dishname }}</td>
+                                <td>₹{{ item.dishprice }}</td>
+                                <td>{{ item.dishtype }}</td>
+                                <td>
+                                    <input type="number" name="{{ item.dishname }}" 
+                                           class="form-control quantity-input"
+                                           value="{% for dish in dishes %}{% if dish.dname == item.dishname %}{{ dish.dquantity }}{% endif %}{% endfor %}"
+                                           min="0">
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-2"></i>Save Changes
+                    </button>
+                    <a href="{% url 'show' %}" class="btn btn-secondary">
+                        <i class="fas fa-times me-2"></i>Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const orderTypeInputs = document.querySelectorAll('input[name="order_type"]');
+    const tableSelection = document.getElementById('table-selection');
+
+    orderTypeInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            if (this.value === 'dine-in') {
+                tableSelection.style.display = 'block';
+            } else {
+                tableSelection.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+{% endblock %} 

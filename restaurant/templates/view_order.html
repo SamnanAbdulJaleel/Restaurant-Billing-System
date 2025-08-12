@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Order Details</h3>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Order Information</h5>
+                    <p><strong>Order ID:</strong> #{{ customer.id }}</p>
+                    <p><strong>Date:</strong> {{ customer.date|date:"d/m/Y" }}</p>
+                    <p><strong>Time:</strong> {{ customer.date|time:"h:i A" }}</p>
+                    <p><strong>Type:</strong> {{ customer.order_type|title }}</p>
+                    {% if table %}
+                    <p><strong>Table Number:</strong> {{ table.number }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 text-right">
+                    <h5>Total Amount</h5>
+                    <h3 class="text-primary">₹{{ customer.amount }}</h3>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th class="text-right">Price</th>
+                            <th class="text-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dish in dishes %}
+                        <tr>
+                            <td>{{ dish.dname }}</td>
+                            <td>{{ dish.dquantity }}</td>
+                            <td class="text-right">₹{{ dish.damount|floatformat:2 }}</td>
+                            <td class="text-right">₹{{ dish.damount|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                            <td class="text-right"><strong>₹{{ customer.amount|floatformat:2 }}</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="mt-4">
+                <a href="{% url 'print_bill' customer.id %}" class="btn btn-primary">
+                    <i class="fas fa-print"></i> Print Bill
+                </a>
+                <a href="{% url 'show' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Orders
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
