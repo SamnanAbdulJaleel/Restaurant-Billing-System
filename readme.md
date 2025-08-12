@@ -126,15 +126,38 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="https://your-screenshot1-link" alt="Dashboard" width="70%">
-  <br>
-  <i>Dashboard with revenue charts</i>
+  Dashboard with revenue charts
+   <br>
+</p>
+<p align="center">
+  <img src="./Screenshot7.png" alt="Dashboard" width="70%">
+  <img src="./Screenshot.png" alt="Dashboard" width="70%">
+  <img src="./Screenshot3.png" alt="Dashboard" width="70%">
 </p>
 
 <p align="center">
-  <img src="https://your-screenshot2-link" alt="Order Management" width="70%">
-  <br>
   <i>Order management panel</i>
+    <br>
+</p>
+<p align="center">
+  <img src="./Screenshot6.png" alt="Dashboard" width="70%">
+</p>
+
+<p align="center">
+  <i>Table Management</i>
+    <br>
+</p>
+<p align="center">
+  <img src="./Screenshot2.png" alt="Dashboard" width="70%">
+</p>
+
+<p align="center">
+  <i>Restaurant Menu</i>
+    <br>
+</p>
+<p align="center">
+  <img src="./Screenshot4.png" alt="Dashboard" width="70%">
+  <img src="./Screenshot5.png" alt="Dashboard" width="70%">
 </p>
 
 ---
@@ -147,7 +170,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-📧 **[samnanjaleel@gmail.com](mailto:your.email@example.com)**
+📧 **[samnanjaleel22@gmail.com](mailto:your.email@example.com)**
 💬 **+91-9747156102**
 
 ---
