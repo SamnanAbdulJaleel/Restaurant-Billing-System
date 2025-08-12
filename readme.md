@@ -17,13 +17,13 @@
 <!-- Badges -->
 <p align="center">
   <img src="https://img.shields.io/github/license/SamnanAbdulJaleel/restaurant-billing-system?style=for-the-badge" alt="License">
-  <img src="https://img.shields.io/badge/python-3.10-blue?style=for-the-badge" alt="Python Version">
-  <img src="https://img.shields.io/badge/django-5.0-green?style=for-the-badge" alt="Django Version">
+  <img src="https://img.shields.io/badge/python-3.12..6-blue?style=for-the-badge" alt="Python Version">
+  <img src="https://img.shields.io/badge/django-5.2.5-green?style=for-the-badge" alt="Django Version">
 </p>
 
 ---
 
-## 🚀 Features
+## 🚀 Features 
 
 ### 🛒 Order & Table Management
 - Create and manage orders for **dine-in** or **parcel** customers
@@ -126,13 +126,23 @@
 ## 📸 Screenshots
 
 <p align="center">
-  Dashboard with revenue charts
+  Dashboard
    <br>
 </p>
 <p align="center">
   <img src="./Screenshot7.png" alt="Dashboard" width="70%">
-  <img src="./Screenshot.png" alt="Dashboard" width="70%">
+  <img src="./screenshot.png" alt="Dashboard" width="70%">
+</p>
+
+<p align="center">
+  Revenue System
+   <br>
+</p>
+<p align="center">
   <img src="./Screenshot3.png" alt="Dashboard" width="70%">
+  <img src="./screenshot8.png" alt="Dashboard" width="70%">
+  <img src="./screenshot9.png" alt="Dashboard" width="70%">
+  <img src="./screenshot11.png" alt="Dashboard" width="70%">
 </p>
 
 <p align="center">
