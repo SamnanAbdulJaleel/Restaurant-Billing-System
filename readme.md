@@ -70,7 +70,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/SamnanAbdulJaleel/restaurant-billing-system.git
+   git clone https://github.com/TheSaMNaN/restaurant-billing-system.git
    cd restaurant-billing-system
    ```
 
