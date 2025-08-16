@@ -80,14 +80,11 @@ WSGI_APPLICATION = 'TopTaste.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'toptaste',
-        'USER': 'root',
-        'PASSWORD': '2246',
-        'HOST': 'localhost',   # or your MySQL host, e.g., '127.0.0.1'
-        'PORT': '3306',        # default MySQL port
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USERNAME'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),  
+        'PORT': os.getenv('DB_PROT'),       
     }
 }
 
