@@ -7,3 +7,4 @@ reportlab==4.4.3
 Requests==2.32.4
 django-crispy-forms==2.4
 python-dotenv==1.1.1
+cryptography==45.0.6
