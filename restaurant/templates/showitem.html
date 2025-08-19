@@ -72,17 +72,6 @@
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
-    .navbar-nav {
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      height: 42px;
-    }
-
     .nav-link {
       color: var(--light) !important;
       font-weight: 500;
@@ -170,15 +159,16 @@
     }
 
     .menu-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 2rem;
       background: rgba(255, 255, 255, 0.98);
       border-radius: 20px;
       box-shadow: var(--card-shadow);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      animation: slideIn 0.5s ease-out forwards;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     @keyframes slideIn {
@@ -212,36 +202,24 @@
       font-size: 1rem;
     }
 
-    .table-responsive {
-      margin: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    }
-
     .table {
       margin-bottom: 0;
-      background: white;
-      border-collapse: collapse;
     }
 
     .table th {
       background: var(--primary);
       color: var(--light);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-weight: 500;
       padding: 1rem;
-      font-size: 0.9rem;
       border: none;
-      white-space: nowrap;
+      font-size: 1rem;
     }
 
     .table td {
       padding: 1rem;
       vertical-align: middle;
       color: var(--dark);
-      border-color: rgba(0, 0, 0, 0.05);
+      border-color: rgba(66, 71, 105, 0.1);
       font-size: 0.95rem;
     }
 
@@ -471,7 +449,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/show/">
+            <a class="nav-link active" href="/show/">
               <i class="fas fa-list me-2"></i>Orders
             </a>
           </li>
@@ -486,8 +464,7 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               <i class="fas fa-utensils me-2"></i>Menu
             </a>
             <div class="dropdown-menu">
@@ -495,7 +472,7 @@
                 <i class="fas fa-plus me-2"></i>Add Item
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item active" href="/showitem/">
+              <a class="dropdown-item" href="/showitem/">
                 <i class="fas fa-book-open me-2"></i>Show Menu
               </a>
             </div>

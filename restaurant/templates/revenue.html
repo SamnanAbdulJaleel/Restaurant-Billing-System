@@ -321,6 +321,9 @@
     }
 
     .table-container {
+      width: 100%;
+      max-width: 1200px;
+      overflow-x: auto;
       background: white;
       padding: 1.5rem;
       border-radius: 15px;
@@ -339,17 +342,19 @@
 
     .table th {
       background: var(--primary);
-      color: white;
+      color: var(--light);
       font-weight: 500;
-      border: none;
       padding: 1rem;
+      border: none;
+      font-size: 1rem;
     }
 
     .table td {
       padding: 1rem;
       vertical-align: middle;
       color: var(--dark);
-      border-color: rgba(0, 0, 0, 0.1);
+      border-color: rgba(66, 71, 105, 0.1);
+      font-size: 0.95rem;
     }
 
     .form-label {

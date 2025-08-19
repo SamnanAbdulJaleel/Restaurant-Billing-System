@@ -355,7 +355,6 @@
     @media (max-width: 768px) {
       .order-container {
         padding: 1.5rem;
-        margin: 1rem;
       }
 
       .page-title {
@@ -665,7 +664,7 @@
             <div class="table-grid">
               {% for table in tables %}
               <button type="button" class="table-btn {% if table.is_occupied %}occupied{% endif %}"
-                onclick="selectTable({{table.number}})" {% if table.is_occupied %}disabled{% endif %}
+                onclick="selectTable('{{table.number}}')" {% if table.is_occupied %}disabled{% endif %}
                 id="table{{table.number}}">
                 Table {{table.number}}
               </button>

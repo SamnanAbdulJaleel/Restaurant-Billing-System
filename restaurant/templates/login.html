@@ -5,18 +5,20 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
   <title>TopTaste - Login</title>
-  
+
   <style>
     :root {
       --primary: #2D3250;
@@ -31,11 +33,11 @@
       --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       --transition: all 0.3s ease;
     }
-    
+
     body {
       font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)), 
-                  url('https://images.unsplash.com/photo-1606913080277-86232970a06f?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)),
+        url('https://images.unsplash.com/photo-1606913080277-86232970a06f?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -44,7 +46,7 @@
       align-items: center;
       color: var(--light);
     }
-    
+
     .login-container {
       max-width: 450px;
       width: 100%;
@@ -57,7 +59,7 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       animation: fadeInUp 0.8s ease-out;
     }
-    
+
     .logo {
       font-family: 'Playfair Display', serif;
       color: var(--primary);
@@ -66,14 +68,14 @@
       font-size: 2.5rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .welcome-text {
       color: var(--secondary);
       margin-bottom: 2rem;
       font-weight: 500;
       font-size: 1.1rem;
     }
-    
+
     .form-control {
       height: 55px;
       border-radius: 12px;
@@ -83,31 +85,31 @@
       transition: var(--transition);
       font-size: 1rem;
     }
-    
+
     .form-control:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 0.25rem rgba(246, 177, 122, 0.25);
       background-color: white;
     }
-    
+
     .input-group-text {
       background-color: rgba(255, 255, 255, 0.95);
       border: 2px solid #e0e0e0;
       border-radius: 12px;
       padding: 0.75rem 1.2rem;
     }
-    
-    .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+
+    .input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
       margin-left: -2px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-    
-    .input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+
+    .input-group> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
-    
+
     .btn-login {
       background: var(--warning);
       color: var(--dark);
@@ -121,13 +123,13 @@
       text-transform: uppercase;
       font-size: 0.9rem;
     }
-    
+
     .btn-login:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(255, 217, 61, 0.4);
       background: var(--warning);
     }
-    
+
     .btn-secondary-action {
       background: white;
       color: var(--primary);
@@ -144,7 +146,7 @@
       justify-content: center;
       text-decoration: none;
     }
-    
+
     .btn-secondary-action:hover {
       background-color: var(--primary);
       color: white;
@@ -152,7 +154,7 @@
       box-shadow: 0 8px 25px rgba(45, 50, 80, 0.4);
       text-decoration: none;
     }
-    
+
     .divider {
       display: flex;
       align-items: center;
@@ -161,22 +163,24 @@
       font-weight: 500;
       text-align: center;
     }
-    
-    .divider::before, .divider::after {
+
+    .divider::before,
+    .divider::after {
       content: "";
       flex: 1;
       border-bottom: 2px solid rgba(66, 71, 105, 0.1);
     }
-    
+
     .divider::before {
       margin-right: 1rem;
     }
-    
+
     .divider::after {
       margin-left: 1rem;
     }
-    
-    .btn-reset, .btn-forgot {
+
+    .btn-reset,
+    .btn-forgot {
       border: none !important;
       background: none !important;
       box-shadow: none !important;
@@ -185,58 +189,62 @@
       font-weight: 500;
       font-size: 0.9rem;
     }
-    
-    .btn-reset:hover, .btn-forgot:hover {
+
+    .btn-reset:hover,
+    .btn-forgot:hover {
       color: var(--warning);
       transform: translateY(-2px);
     }
-    
+
     /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
+
     /* Floating animation */
     @keyframes float {
       0% {
         transform: translateY(0px) rotate(0deg);
       }
+
       50% {
         transform: translateY(-10px) rotate(5deg);
       }
+
       100% {
         transform: translateY(0px) rotate(0deg);
       }
     }
-    
+
     .logo i {
       animation: float 3s ease-in-out infinite;
       color: var(--accent);
     }
-    
+
     /* Responsive adjustments */
     @media (max-width: 576px) {
       .login-container {
         padding: 2rem;
-        margin: 1rem;
       }
-      
+
       .logo {
         font-size: 2rem;
       }
-      
+
       .welcome-text {
         font-size: 1rem;
       }
-      
-      .btn-login, .btn-secondary-action {
+
+      .btn-login,
+      .btn-secondary-action {
         height: 50px;
       }
     }
@@ -252,34 +260,36 @@
         </h1>
         <p class="welcome-text">Welcome back! Please login to continue</p>
       </div>
-      
+
       <form action="/" method="POST">
         {% csrf_token %}
-        
+
         <div class="mb-4">
           <div class="input-group">
             <span class="input-group-text">
               <i class="fas fa-envelope text-muted"></i>
             </span>
-            <input type="email" name="username" maxlength="30" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" name="username" maxlength="30" id="inputEmail" class="form-control"
+              placeholder="Email address" required autofocus>
           </div>
         </div>
-        
+
         <div class="mb-4">
           <div class="input-group">
             <span class="input-group-text">
               <i class="fas fa-lock text-muted"></i>
             </span>
-            <input type="password" name="password" maxlength="15" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" maxlength="15" id="inputPassword" class="form-control"
+              placeholder="Password" required>
           </div>
         </div>
-        
+
         <div class="d-grid gap-2 mb-3">
           <button class="btn btn-login" name="login" type="submit">
             <i class="fas fa-sign-in-alt me-2"></i>Login
           </button>
         </div>
-        
+
         <div class="d-flex justify-content-between mb-4">
           <button class="btn btn-sm btn-reset" type="reset">
             <i class="fas fa-redo me-1"></i>Reset
@@ -288,9 +298,9 @@
             <i class="fas fa-key me-1"></i>Forgot Password?
           </a>
         </div>
-        
+
         <div class="divider">or</div>
-        
+
         <div class="d-grid">
           <a class="btn btn-secondary-action" href="/register">
             <i class="fas fa-user-plus me-2"></i>Create New Account
