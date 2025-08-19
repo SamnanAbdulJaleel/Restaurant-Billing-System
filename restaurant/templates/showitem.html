@@ -11,15 +11,17 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
 
   <title>TopTaste - Menu Items</title>
-  
+
   <style>
     :root {
       --primary: #2D3250;
@@ -34,18 +36,18 @@
       --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       --transition: all 0.3s ease;
     }
-    
+
     body {
       font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)), 
-                  url('https://images.unsplash.com/photo-1606913084603-3e7702b01627?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)),
+        url('https://images.unsplash.com/photo-1606913084603-3e7702b01627?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
       color: var(--light);
     }
-    
+
     .navbar {
       background: rgba(45, 50, 80, 0.95);
       backdrop-filter: blur(10px);
@@ -57,30 +59,30 @@
       right: 0;
       z-index: 1030;
     }
-    
+
     .navbar-brand {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       color: var(--light) !important;
     }
-    
+
     .navbar-brand img {
       width: 40px;
       height: 40px;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
-    
+
     .navbar-nav {
       align-items: center;
       gap: 0.25rem;
     }
-    
+
     .nav-item {
       display: flex;
       align-items: center;
       height: 42px;
     }
-    
+
     .nav-link {
       color: var(--light) !important;
       font-weight: 500;
@@ -90,17 +92,17 @@
       position: relative;
       margin: 0 0.3rem;
     }
-    
+
     .nav-link:hover {
       background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
-    
+
     .nav-link.active {
       background: var(--accent);
       color: var(--dark) !important;
     }
-    
+
     .dropdown-menu {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -110,7 +112,7 @@
       padding: 0.5rem;
       margin-top: 0.5rem;
     }
-    
+
     .dropdown-item {
       padding: 0.75rem 1.25rem;
       border-radius: 8px;
@@ -118,12 +120,12 @@
       color: var(--dark);
       font-weight: 500;
     }
-    
+
     .dropdown-item:hover {
       background: rgba(45, 50, 80, 0.1);
       transform: translateX(5px);
     }
-    
+
     .dropdown-item.active {
       background: var(--accent);
       color: var(--dark);
@@ -144,7 +146,7 @@
       height: 42px;
       white-space: nowrap;
     }
-    
+
     .btn-logout:hover {
       background: var(--warning);
       transform: translateY(-2px);
@@ -152,21 +154,21 @@
       color: var(--dark);
       text-decoration: none;
     }
-    
+
     .main-content {
       padding-top: 100px;
       padding-bottom: 2rem;
       width: 100%;
       min-height: calc(100vh - 86px);
     }
-    
+
     .container {
       max-width: 1350px;
       width: 100%;
       margin: 0 auto;
       padding: 0 1rem;
     }
-    
+
     .menu-container {
       background: rgba(255, 255, 255, 0.98);
       border-radius: 20px;
@@ -178,18 +180,19 @@
       margin: 0 auto;
       animation: slideIn 0.5s ease-out forwards;
     }
-    
+
     @keyframes slideIn {
       from {
         opacity: 0;
         transform: translateY(-20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
+
     .page-title {
       font-family: 'Playfair Display', serif;
       color: var(--primary);
@@ -201,27 +204,27 @@
       justify-content: center;
       gap: 0.75rem;
     }
-    
+
     .page-subtitle {
       color: var(--secondary);
       text-align: center;
       margin-bottom: 2rem;
       font-size: 1rem;
     }
-    
+
     .table-responsive {
       margin: 0;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     }
-    
+
     .table {
       margin-bottom: 0;
       background: white;
       border-collapse: collapse;
     }
-    
+
     .table th {
       background: var(--primary);
       color: var(--light);
@@ -233,7 +236,7 @@
       border: none;
       white-space: nowrap;
     }
-    
+
     .table td {
       padding: 1rem;
       vertical-align: middle;
@@ -241,16 +244,16 @@
       border-color: rgba(0, 0, 0, 0.05);
       font-size: 0.95rem;
     }
-    
+
     .table tbody tr {
       transition: var(--transition);
     }
-    
+
     .table tbody tr:hover {
       background: rgba(45, 50, 80, 0.05);
       transform: translateX(10px);
     }
-    
+
     .category-badge {
       display: inline-flex;
       align-items: center;
@@ -261,22 +264,22 @@
       gap: 0.5rem;
       white-space: nowrap;
     }
-    
+
     .category-starters {
       background: rgba(125, 206, 148, 0.2);
       color: var(--success);
     }
-    
+
     .category-main {
       background: rgba(246, 177, 122, 0.2);
       color: var(--accent-dark);
     }
-    
+
     .category-special {
       background: rgba(255, 217, 61, 0.2);
       color: var(--warning);
     }
-    
+
     .btn-action {
       padding: 0.5rem 1rem;
       border-radius: 8px;
@@ -290,24 +293,24 @@
       min-width: 90px;
       justify-content: center;
     }
-    
+
     .btn-edit {
       background: rgba(246, 177, 122, 0.1);
       color: var(--accent-dark);
       margin-right: 0.5rem;
     }
-    
+
     .btn-edit:hover {
       background: var(--accent);
       color: var(--dark);
       transform: translateY(-2px);
     }
-    
+
     .btn-delete {
       background: rgba(255, 107, 107, 0.1);
       color: var(--danger);
     }
-    
+
     .btn-delete:hover {
       background: var(--danger);
       color: white;
@@ -397,10 +400,12 @@
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
       }
+
       70% {
         transform: scale(1);
         box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
       }
+
       100% {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
@@ -411,7 +416,7 @@
       white-space: nowrap;
       width: 1%;
     }
-    
+
     @media (max-width: 768px) {
       .main-content {
         padding-top: 90px;
@@ -447,17 +452,17 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/index/">
         <img src="{% static 'Resto.png' %}" alt="TopTaste" class="me-2">
         <span>TopTaste</span>
       </a>
-      
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -481,7 +486,8 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown">
               <i class="fas fa-utensils me-2"></i>Menu
             </a>
             <div class="dropdown-menu">
@@ -495,7 +501,7 @@
             </div>
           </li>
         </ul>
-        
+
         <div class="d-flex align-items-center">
           <span class="nav-link me-3">
             <i class="fas fa-user-circle me-2"></i>{{userdata}}
@@ -516,62 +522,64 @@
         </h1>
         <p class="page-subtitle">Manage your restaurant's delicious offerings</p>
 
-      <div class="table-responsive">
+        <div class="table-responsive">
           <table class="table">
-          <thead>
-            <tr>
+            <thead>
+              <tr>
                 <th>Item Name</th>
                 <th>Category</th>
                 <th>Price</th>
                 <th class="actions-cell">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+              </tr>
+            </thead>
+            <tbody>
               {% if menu %}
-                {% for item in menu %}
-            <tr>
-                  <td>{{item.dishname}}</td>
-              <td>
-                    {% if item.dishtype == "Starters" %}
-                <span class="category-badge category-starters">
-                        <i class="fas fa-utensils me-2"></i>
-                        Starters
-                </span>
-                    {% elif item.dishtype == "Main Course" %}
-                      <span class="category-badge category-main">
-                        <i class="fas fa-drumstick-bite me-2"></i>
-                        Main Course
-                </span>
-                {% else %}
-                <span class="category-badge category-special">
-                        <i class="fas fa-star me-2"></i>
-                        Restaurant Special
-                </span>
-                {% endif %}
-              </td>
-                  <td>₹{{item.dishprice}}</td>
-                  <td class="actions-cell">
-                    <a href="/edititem/{{item.id}}" class="btn btn-action btn-edit">
-                      <i class="fas fa-edit"></i>
-                      Edit
-                    </a>
-                    <a href="/deleteitem/{{item.dishname}}" class="btn btn-action btn-delete" data-item-name="{{item.dishname}}">
-                      <i class="fas fa-trash-alt"></i>
-                      Delete
-                    </a>
-                  </td>
-            </tr>
-            {% endfor %}
+              {% for item in menu %}
+              <tr>
+                <td>{{item.dishname}}</td>
+                <td>
+                  {% if item.dishtype == "Starters" %}
+                  <span class="category-badge category-starters">
+                    <i class="fas fa-utensils me-2"></i>
+                    Starters
+                  </span>
+                  {% elif item.dishtype == "Main Course" %}
+                  <span class="category-badge category-main">
+                    <i class="fas fa-drumstick-bite me-2"></i>
+                    Main Course
+                  </span>
+                  {% else %}
+                  <span class="category-badge category-special">
+                    <i class="fas fa-star me-2"></i>
+                    Restaurant Special
+                  </span>
+                  {% endif %}
+                </td>
+                <td>₹{{item.dishprice}}</td>
+                <td class="actions-cell">
+                  <a href="/edititem/{{item.id}}" class="btn btn-action btn-edit">
+                    <i class="fas fa-edit"></i>
+                    Edit
+                  </a>
+                  <a href="/deleteitem/{{item.dishname}}" class="btn btn-action btn-delete"
+                    data-item-name="{{item.dishname}}">
+                    <i class="fas fa-trash-alt"></i>
+                    Delete
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
               {% endif %}
-          </tbody>
-        </table>
-      </div>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Delete Confirmation Modal -->
-  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0">
         <div class="modal-body p-0">
@@ -593,9 +601,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Initialize dropdowns
       var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
       var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
@@ -608,7 +616,7 @@
 
       // Add delete confirmation handlers
       document.querySelectorAll('.btn-delete').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
           e.preventDefault();
           const itemName = this.getAttribute('data-item-name');
           deleteUrl = '/deleteitem/' + itemName;
@@ -617,7 +625,7 @@
       });
 
       // Handle delete confirmation
-      document.getElementById('confirmDelete').addEventListener('click', function() {
+      document.getElementById('confirmDelete').addEventListener('click', function () {
         if (deleteUrl) {
           fetch(deleteUrl)
             .then(response => response.json())

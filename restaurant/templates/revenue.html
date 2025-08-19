@@ -11,18 +11,20 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
 
   <!-- Date Range Picker -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   <title>TopTaste - Revenue Management</title>
-  
+
   <style>
     :root {
       --primary: #2D3250;
@@ -37,11 +39,11 @@
       --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       --transition: all 0.3s ease;
     }
-    
+
     body {
       font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)), 
-                  url('https://images.unsplash.com/photo-1606913084603-3e7702b01627?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(66, 71, 105, 0.9)),
+        url('https://images.unsplash.com/photo-1606913084603-3e7702b01627?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -49,7 +51,7 @@
       color: var(--light);
       padding-top: 76px;
     }
-    
+
     .navbar {
       background: rgba(45, 50, 80, 0.95);
       backdrop-filter: blur(10px);
@@ -62,19 +64,19 @@
       z-index: 1030;
       height: 76px;
     }
-    
+
     .navbar-brand {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       color: var(--light) !important;
     }
-    
+
     .navbar-brand img {
       width: 40px;
       height: 40px;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
-    
+
     .nav-link {
       color: var(--light) !important;
       font-weight: 500;
@@ -84,17 +86,17 @@
       position: relative;
       margin: 0 0.3rem;
     }
-    
+
     .nav-link:hover {
       background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
-    
+
     .nav-link.active {
       background: var(--accent);
       color: var(--dark) !important;
     }
-    
+
     .dropdown-menu {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -104,7 +106,7 @@
       padding: 0.5rem;
       margin-top: 0.5rem;
     }
-    
+
     .dropdown-item {
       padding: 0.75rem 1.25rem;
       border-radius: 8px;
@@ -112,12 +114,12 @@
       color: var(--dark);
       font-weight: 500;
     }
-    
+
     .dropdown-item:hover {
       background: rgba(45, 50, 80, 0.1);
       transform: translateX(5px);
     }
-    
+
     .dropdown-item.active {
       background: var(--accent);
       color: var(--dark);
@@ -165,9 +167,56 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Make the mobile hamburger menu readable on top of white content */
+    @media (max-width: 991.98px) {
+      .navbar .navbar-collapse {
+        background: rgba(45, 50, 80, 0.98);
+        /* same dark as your navbar */
+        border-radius: 12px;
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Ensure links are visible */
+      .navbar .nav-link {
+        color: #F7F7F7 !important;
+      }
+
+      .navbar .nav-link.active {
+        background: var(--accent);
+        color: var(--dark) !important;
+      }
+
+      /* Make the nested dropdown inside the navbar match the dark panel */
+      .navbar .dropdown-menu {
+        background: transparent;
+        /* blend into the dark collapse panel */
+        border: 0;
+        box-shadow: none;
+        padding-left: 0.25rem;
+      }
+
+      .navbar .dropdown-item {
+        color: #000000;
+      }
+
+      .navbar .dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .navbar .dropdown-menu {
+        background: rgba(255, 255, 255, 0.98);
+        /* same dark as your navbar */
+        border-radius: 12px;
+        padding: 0.5rem;
       }
     }
 
@@ -343,7 +392,7 @@
     .table tbody tr {
       transition: var(--transition);
     }
-    
+
     .table tbody tr:hover {
       background: rgba(45, 50, 80, 0.05);
       transform: translateX(10px);
@@ -364,13 +413,13 @@
       border: none;
     }
 
-    .daterangepicker td.available:hover, 
+    .daterangepicker td.available:hover,
     .daterangepicker th.available:hover {
       background-color: rgba(45, 50, 80, 0.1);
       border-radius: 6px;
     }
 
-    .daterangepicker td.active, 
+    .daterangepicker td.active,
     .daterangepicker td.active:hover {
       background-color: var(--primary);
       border-radius: 6px;
@@ -415,9 +464,9 @@
       color: white;
     }
 
-    .daterangepicker td.off, 
-    .daterangepicker td.off.in-range, 
-    .daterangepicker td.off.start-date, 
+    .daterangepicker td.off,
+    .daterangepicker td.off.in-range,
+    .daterangepicker td.off.start-date,
     .daterangepicker td.off.end-date {
       background-color: transparent;
       color: #999;
@@ -543,17 +592,17 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/index/">
         <img src="{% static 'Resto.png' %}" alt="TopTaste" class="me-2">
         <span>TopTaste</span>
       </a>
-      
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -591,7 +640,7 @@
             </div>
           </li>
         </ul>
-        
+
         <div class="d-flex align-items-center">
           <span class="nav-link me-3">
             <i class="fas fa-user-circle me-2"></i>{{userdata}}
@@ -633,13 +682,18 @@
                 <i class="fas fa-filter me-2"></i>Apply Filter
               </button>
               <div class="dropdown">
-                <button class="btn btn-export dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown">
+                <button class="btn btn-export dropdown-toggle" type="button" id="exportDropdown"
+                  data-bs-toggle="dropdown">
                   <i class="fas fa-download me-2"></i>Export
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" id="exportExcel"><i class="fas fa-file-excel me-2"></i>Export as Excel</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#" id="sendWhatsApp"><i class="fab fa-whatsapp me-2"></i>Send via WhatsApp</a></li>
+                  <li><a class="dropdown-item" href="#" id="exportExcel"><i class="fas fa-file-excel me-2"></i>Export as
+                      Excel</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#" id="sendWhatsApp"><i class="fab fa-whatsapp me-2"></i>Send via
+                      WhatsApp</a></li>
                 </ul>
               </div>
             </div>
@@ -717,13 +771,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       // Handle filter application
-      $('#applyFilter').click(function() {
+      $('#applyFilter').click(function () {
         const range = $('#dateRangeSelect').val();
         const daterangepicker = $('#daterangepicker').data('daterangepicker');
         let customRange = '';
-        
+
         // Get the dates based on the selected range
         if (range === 'custom') {
           const startDate = daterangepicker.startDate.format('YYYY-MM-DD');
@@ -736,7 +790,7 @@
         const originalText = $button.html();
         $button.html('<i class="fas fa-spinner fa-spin me-2"></i>Loading...');
         $button.prop('disabled', true);
-        
+
         // Send AJAX request to update data
         $.ajax({
           url: '/revenue/filter/',
@@ -745,7 +799,7 @@
             range: range,
             custom_range: customRange
           },
-          success: function(response) {
+          success: function (response) {
             // Update stats
             $('#totalRevenue').text('₹' + response.total_revenue.toLocaleString('en-IN', {
               minimumFractionDigits: 2,
@@ -775,30 +829,30 @@
             tbody.empty();
             response.revenue_data.forEach(entry => {
               tbody.append(`
-                <tr>
-                  <td>${entry.date}</td>
-                  <td>${entry.orders}</td>
-                  <td>₹${parseFloat(entry.revenue).toLocaleString('en-IN', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                  })}</td>
-                  <td>₹${parseFloat(entry.avg_value).toLocaleString('en-IN', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                  })}</td>
-                </tr>
-              `);
+                  <tr>
+                    <td>${entry.date}</td>
+                    <td>${entry.orders}</td>
+                    <td>₹${parseFloat(entry.revenue).toLocaleString('en-IN', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })}</td>
+                    <td>₹${parseFloat(entry.avg_value).toLocaleString('en-IN', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })}</td>
+                  </tr>
+                `);
             });
           },
-          error: function(xhr, status, error) {
-            console.error('Error:', {xhr, status, error});
+          error: function (xhr, status, error) {
+            console.error('Error:', { xhr, status, error });
             let errorMessage = 'An error occurred while fetching data';
             if (xhr.responseJSON && xhr.responseJSON.error) {
               errorMessage = xhr.responseJSON.error;
             }
             alert(errorMessage);
           },
-          complete: function() {
+          complete: function () {
             // Restore button state
             $button.html(originalText);
             $button.prop('disabled', false);
@@ -807,10 +861,10 @@
       });
 
       // Handle date range select change
-      $('#dateRangeSelect').change(function() {
+      $('#dateRangeSelect').change(function () {
         const selectedValue = $(this).val();
         const customRangeDiv = $('#customDateRange');
-        
+
         if (selectedValue === 'custom') {
           customRangeDiv.slideDown(300);
         } else {
@@ -837,7 +891,7 @@
         locale: {
           format: 'YYYY-MM-DD'
         }
-      }).on('apply.daterangepicker', function(ev, picker) {
+      }).on('apply.daterangepicker', function (ev, picker) {
         if (picker.chosenLabel && picker.chosenLabel !== 'Custom') {
           $('#dateRangeSelect').val('custom').trigger('change');
         }
@@ -845,7 +899,7 @@
       });
 
       // Add keyboard shortcut for applying filter (Enter key)
-      $(document).keypress(function(e) {
+      $(document).keypress(function (e) {
         if (e.which == 13 && !$('input:focus, textarea:focus').length) {
           $('#applyFilter').click();
         }
@@ -861,12 +915,12 @@
       const ctx = document.getElementById('revenueChart').getContext('2d');
       const chartLabels = JSON.parse('{{chart_labels|safe}}');
       const chartData = JSON.parse('{{chart_data|safe}}');
-      
+
       // Function to determine chart type based on date range and grouping
       function getChartConfig(range, groupBy) {
-        const isBar = range === 'monthly' || 
-                     (range === 'custom' && moment($('#daterangepicker').val().split(' - ')[1]).diff(moment($('#daterangepicker').val().split(' - ')[0]), 'days') > 7);
-        
+        const isBar = range === 'monthly' ||
+          (range === 'custom' && moment($('#daterangepicker').val().split(' - ')[1]).diff(moment($('#daterangepicker').val().split(' - ')[0]), 'days') > 7);
+
         return {
           type: isBar ? 'bar' : 'line',
           backgroundColor: isBar ? 'rgba(45, 50, 80, 0.8)' : 'rgba(45, 50, 80, 0.1)',
@@ -876,7 +930,7 @@
 
       // Initial chart type based on selected range
       const initialConfig = getChartConfig($('#dateRangeSelect').val(), 'day');
-      
+
       const revenueChart = new Chart(ctx, {
         type: initialConfig.type,
         data: {
@@ -941,10 +995,10 @@
               borderWidth: 1,
               displayColors: false,
               callbacks: {
-                title: function(tooltipItems) {
+                title: function (tooltipItems) {
                   const range = $('#dateRangeSelect').val();
                   const label = tooltipItems[0].label;
-                  
+
                   if (range === 'daily') {
                     return `Time: ${label}`;
                   } else if (range === 'custom') {
@@ -953,7 +1007,7 @@
                     return label;
                   }
                 },
-                label: function(context) {
+                label: function (context) {
                   const value = context.parsed.y;
                   return `Revenue: ₹${value.toLocaleString('en-IN', {
                     minimumFractionDigits: 2,
@@ -975,10 +1029,10 @@
                 },
                 maxRotation: 45,
                 minRotation: 45,
-                callback: function(value, index, values) {
+                callback: function (value, index, values) {
                   const range = $('#dateRangeSelect').val();
                   const label = this.getLabelForValue(value);
-                  
+
                   if (range === 'custom') {
                     return moment(label).format('MMM D');
                   }
@@ -987,7 +1041,7 @@
               },
               title: {
                 display: true,
-                text: function() {
+                text: function () {
                   const range = $('#dateRangeSelect').val();
                   if (range === 'daily') {
                     return 'Time';
@@ -1003,7 +1057,7 @@
                   weight: '500',
                   size: 13
                 },
-                padding: {top: 20}
+                padding: { top: 20 }
               }
             },
             y: {
@@ -1017,7 +1071,7 @@
                 font: {
                   family: "'DM Sans', sans-serif"
                 },
-                callback: function(value) {
+                callback: function (value) {
                   return '₹' + value.toLocaleString('en-IN', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
@@ -1033,7 +1087,7 @@
                   weight: '500',
                   size: 13
                 },
-                padding: {bottom: 10}
+                padding: { bottom: 10 }
               }
             }
           }
@@ -1041,13 +1095,13 @@
       });
 
       // Handle export buttons
-      $('#exportExcel').click(function() {
+      $('#exportExcel').click(function () {
         const range = $('#dateRangeSelect').val();
         const customRange = $('#daterangepicker').val();
         window.location.href = `/revenue/export/excel/?range=${range}&custom_range=${customRange}`;
       });
 
-      $('#sendWhatsApp').click(function() {
+      $('#sendWhatsApp').click(function () {
         const phone = prompt("Please enter your WhatsApp number (e.g. 919876543210):");
         if (phone) {
           const message = `Hi there! this message is regarding the Revenue Report Summary:\n\nTotal Revenue: ${$('#totalRevenue').text()}\nTotal Orders: ${$('#totalOrders').text()}\nAverage Order Value: ${$('#avgOrderValue').text()}\nPeak Hour Revenue: ${$('#peakHourRevenue').text()}`;
@@ -1057,4 +1111,5 @@
     });
   </script>
 </body>
-</html> 
+
+</html>
