@@ -4,15 +4,22 @@
 
 <p align="center">
   <b>A complete restaurant billing & order management solution built with Django</b><br>
-  Dine-in & parcel orders | KOT & bill printing | Revenue analytics | Excel & WhatsApp export
+  Dine-in & parcel orders | KOT & bill printing | Revenue analytics | Excel & WhatsApp export 
 </p>
 
 <!-- Badges -->
 <p align="center">
   <img src="https://img.shields.io/github/license/SamnanAbdulJaleel/restaurant-billing-system?style=for-the-badge" alt="License">
-  <img src="https://img.shields.io/badge/python-3.12..6-blue?style=for-the-badge" alt="Python Version">
+  <img src="https://img.shields.io/badge/python-3.12.6-blue?style=for-the-badge" alt="Python Version">
   <img src="https://img.shields.io/badge/django-5.2.5-green?style=for-the-badge" alt="Django Version">
 </p>
+
+---
+
+## 🛠 NOTE
+
+For Live users i suggesst using the custom **email**: "sultanjaleel13@gmail.com" and **pasword**: "2246" as your **login credentials for login**. 
+Enjoy the Demo is **[Live Here](https://thesamnan.pythonanywhere.com/)** ✨. 
 
 ---
 
@@ -58,7 +65,7 @@
 | **Django**       | Backend framework |
 | **HTML/CSS/JS**  | Frontend structure & styling |
 | **Bootstrap**    | Responsive UI framework |
-| **SQLite**        | Database |
+| **MySQL**        | Database |
 | **Chart.js**     | Graphs & data visualization |
 | **NumPy**        | Data calculations for charts |
 | **ESC/POS**      | Thermal printer integration |
