@@ -253,6 +253,13 @@
       <form action="/register/" method="POST">
         {% csrf_token %}
 
+        {% if messages %}
+        {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+
+
         <div class="mb-4">
           <label for="emailInput" class="form-label">Email Address</label>
           <div class="input-group">
